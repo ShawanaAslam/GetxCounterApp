@@ -9,4 +9,10 @@ class IncrementController extends GetxController {
     // always use .value with variable for changing the value of obs variable
     counter.value++;
   }
+
+  void decrement() {
+    if (counter.value > 0) {
+      counter.value--;
+    }
+  }
 }

@@ -19,14 +19,14 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //   appBar:AppBar(
-      //     backgroundColor:Color(0xff5099D3) ,
-      //    title:
-      //    Text("Counter App",style:GoogleFonts.roboto(color:Colors.white ,
-      //         fontSize: 25,fontWeight: FontWeight.w800
-      //    ),
-      //    ),
-      // centerTitle: true),
+      appBar: AppBar(
+          backgroundColor: Color(0xff5099D3),
+          title: Text(
+            "Counter App with GetX",
+            style: GoogleFonts.roboto(
+                color: Colors.white, fontSize: 25, fontWeight: FontWeight.w800),
+          ),
+          centerTitle: true),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -70,10 +70,7 @@ class _HomeViewState extends State<HomeView> {
                     padding: const EdgeInsets.only(bottom: 50),
                     child: InkwellConwidget(
                       ontap: () {
-                        if (count > 0) {
-                          count--;
-                        }
-                        setState(() {});
+                        obj.decrement();
                       },
                       hgt: 150,
                       wdt: 100,
@@ -113,6 +110,17 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 0,
+              ),
+              Container(
+                height: 60,
+                width: double.infinity,
+                color: Color(0xff235E8D),
+                child: Center(
+                  child: Text('Developed by: name'),
+                ),
               )
             ],
           ),
