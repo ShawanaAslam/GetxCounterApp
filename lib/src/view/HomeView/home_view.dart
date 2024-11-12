@@ -28,108 +28,102 @@ class _HomeViewState extends State<HomeView> {
           ),
           centerTitle: true),
       body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 95,
+        child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 68,
+            ),
+            Obx(
+              () => Text(
+                "${obj.counter}",
+                style: GoogleFonts.roboto(
+                    color: Color(0xff5099D3),
+                    fontSize: 120,
+                    fontWeight: FontWeight.w700),
               ),
-              Obx(
-                () => Text(
-                  "${obj.counter}",
-                  style: GoogleFonts.roboto(
-                      color: Color(0xff5099D3),
-                      fontSize: 120,
-                      fontWeight: FontWeight.w700),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // SizedBox(width: 50,),
+                InkwellConwidget(
+                  ontap: () {
+                    obj.reset();
+                  },
+                  hgt: 100,
+                  wdt: 100,
+                  clr: Color(0xff5099D3),
+                  icn: Icons.restart_alt,
                 ),
-              ),
-              SizedBox(
-                height: 68,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // SizedBox(width: 50,),
-                  InkwellConwidget(
+                SizedBox(
+                  width: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 50),
+                  child: InkwellConwidget(
                     ontap: () {
-                      obj.reset();
+                      obj.decrement();
                     },
-                    hgt: 100,
+                    hgt: 150,
                     wdt: 100,
-                    clr: Color(0xff5099D3),
-                    icn: Icons.restart_alt,
+                    clr: Color(0xff235E8D),
+                    icn: Icons.minimize,
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 50),
-                    child: InkwellConwidget(
-                      ontap: () {
-                        obj.decrement();
-                      },
-                      hgt: 150,
-                      wdt: 100,
-                      clr: Color(0xff235E8D),
-                      icn: Icons.minimize,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  // button for increment
-                  //   Padding(
-                  //     padding: const EdgeInsets.only(bottom: 100),
-                  //     child: InkwellConwidget(
-                  //       ontap: () {
-                  //         count++;
-
-                  //         setState(() {});
-                  //       },
-                  //       hgt: 200,
-                  //       wdt: 100,
-                  //       clr: Color(0xff235E8D),
-                  //       icn: Icons.add,
-                  //     ),
-                  //   ),
-
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 100),
-                    child: InkwellConwidget(
-                      ontap: () {
-                        obj.increment();
-                      },
-                      hgt: 200,
-                      wdt: 100,
-                      clr: Color(0xff235E8D),
-                      icn: Icons.add,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 0,
-              ),
-              Container(
-                height: 60,
-                width: double.infinity,
-                color: Color(0xff235E8D),
-                child: Center(
-                  child: Text(
-                    'Developed by : Shawana Aslam',
-                    style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.w800),
-                  ),
-                  //Text('Developed by: name'),
                 ),
-              )
-            ],
-          ),
+                SizedBox(
+                  width: 10,
+                ),
+                // button for increment
+                //   Padding(
+                //     padding: const EdgeInsets.only(bottom: 100),
+                //     child: InkwellConwidget(
+                //       ontap: () {
+                //         count++;
+
+                //         setState(() {});
+                //       },
+                //       hgt: 200,
+                //       wdt: 100,
+                //       clr: Color(0xff235E8D),
+                //       icn: Icons.add,
+                //     ),
+                //   ),
+
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 100),
+                  child: InkwellConwidget(
+                    ontap: () {
+                      obj.increment();
+                    },
+                    hgt: 200,
+                    wdt: 100,
+                    clr: Color(0xff235E8D),
+                    icn: Icons.add,
+                  ),
+                ),
+              ],
+            ),
+
+            Container(
+              height: 60,
+              width: double.infinity,
+              color: Color(0xff235E8D),
+              child: Center(
+                child: Text(
+                  'Developed By Shawana Aslam',
+                  style: GoogleFonts.roboto(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800),
+                ),
+                //Text('Developed by: name'),
+              ),
+            )
+          ],
         ),
       ),
     );
