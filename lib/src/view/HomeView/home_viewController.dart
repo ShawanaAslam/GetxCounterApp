@@ -14,12 +14,10 @@ class IncrementController extends GetxController {
     if (counter.value > 0) {
       counter.value--;
     }
-
-    //function of restart
+  }
+   //function of restart
     void reset(){
 
       counter.value=0;
     }
-
-  }
 }

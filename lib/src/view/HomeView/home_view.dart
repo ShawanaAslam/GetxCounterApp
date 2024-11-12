@@ -55,8 +55,8 @@ class _HomeViewState extends State<HomeView> {
                   // SizedBox(width: 50,),
                   InkwellConwidget(
                     ontap: () {
-                     obj.reset();
-                     },
+                      obj.reset();
+                    },
                     hgt: 100,
                     wdt: 100,
                     clr: Color(0xff5099D3),
@@ -121,7 +121,9 @@ class _HomeViewState extends State<HomeView> {
                   child: Text(
                     'Developed by : Shawana Aslam',
                     style: GoogleFonts.roboto(
-                        color: Colors.white, fontSize: 25, fontWeight: FontWeight.w800),
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w800),
                   ),
                   //Text('Developed by: name'),
                 ),
