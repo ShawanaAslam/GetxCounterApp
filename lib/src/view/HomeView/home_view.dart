@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getxcounterapp/src/common_widgets/inkwell_ConWidget.dart';
+import 'package:getxcounterapp/src/view/HomeView/home_viewController.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeView extends StatefulWidget {
@@ -10,7 +12,10 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int count=0;
+  int count = 0;
+
+  // for accessing the data members and member function of controller class, we need to craeet a object
+  IncrementController obj = Get.put(IncrementController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,55 +33,87 @@ class _HomeViewState extends State<HomeView> {
             //mainAxisAlignment: MainAxisAlignment.center,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 95,),
-              Text("$count",style:GoogleFonts.roboto(color:Color(0xff5099D3) ,
-              fontSize: 120,fontWeight: FontWeight.w700),),
-              SizedBox(height: 68,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-             // SizedBox(width: 50,),
-              InkwellConwidget(
-          ontap: (){
-          
-            count = 0;
-            setState(() {
-          
-            });
-          },
-          hgt: 100, wdt: 100, clr: Color(0xff5099D3),
-              icn: Icons.restart_alt,),
-              SizedBox(width: 10,),
-              Padding(
-                padding: const EdgeInsets.only(bottom:50),
-                child: InkwellConwidget(
-            ontap: (){
-              if(count>0){
-                count--;
-              }
-              setState(() {
-              });
-            },
-            hgt: 150, wdt: 100, clr: Color(0xff235E8D),
-                icn: Icons.minimize,),
+              SizedBox(
+                height: 95,
               ),
-              SizedBox(width: 10,),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 100),
-                child: InkwellConwidget(
-            ontap: (){
-          
-                count++;
-          
-              setState(() {
-              });
-            },
-            hgt: 200, wdt: 100, clr: Color(0xff235E8D),
-                icn: Icons.add,),
+              Obx(
+                () => Text(
+                  "${obj.counter}",
+                  style: GoogleFonts.roboto(
+                      color: Color(0xff5099D3),
+                      fontSize: 120,
+                      fontWeight: FontWeight.w700),
+                ),
               ),
-            ],
-          )
+              SizedBox(
+                height: 68,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // SizedBox(width: 50,),
+                  InkwellConwidget(
+                    ontap: () {
+                      count = 0;
+                      setState(() {});
+                    },
+                    hgt: 100,
+                    wdt: 100,
+                    clr: Color(0xff5099D3),
+                    icn: Icons.restart_alt,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 50),
+                    child: InkwellConwidget(
+                      ontap: () {
+                        if (count > 0) {
+                          count--;
+                        }
+                        setState(() {});
+                      },
+                      hgt: 150,
+                      wdt: 100,
+                      clr: Color(0xff235E8D),
+                      icn: Icons.minimize,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  // button for increment
+                  //   Padding(
+                  //     padding: const EdgeInsets.only(bottom: 100),
+                  //     child: InkwellConwidget(
+                  //       ontap: () {
+                  //         count++;
+
+                  //         setState(() {});
+                  //       },
+                  //       hgt: 200,
+                  //       wdt: 100,
+                  //       clr: Color(0xff235E8D),
+                  //       icn: Icons.add,
+                  //     ),
+                  //   ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 100),
+                    child: InkwellConwidget(
+                      ontap: () {
+                        obj.increment();
+                      },
+                      hgt: 200,
+                      wdt: 100,
+                      clr: Color(0xff235E8D),
+                      icn: Icons.add,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
