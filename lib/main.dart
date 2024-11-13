@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
         ),
         home:
 
-            //PasswordText()
-            HomeView()
+            PasswordText()
+            //HomeView()
         //const MyHomePage(title: 'Flutter Demo Home Page'),
         );
   }
